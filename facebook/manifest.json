@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "likeRemover",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        // "*://www.facebook.com/*",
+        // "https://www.facebook.com/MpireSolutions/settings/?tab=people_and_other_pages"
+        "https://www.facebook.com/browse/?type=page_fans&page_id=186504413358",
+        "https://www.facebook.com/search/186504413358/likers?ref=about",
+        "https://www.facebook.com/MpireSolutions/settings/?tab=people_and_other_pages"
+      ],
+      "js": ["content.js", "tabScript.js"]
+    }
+  ],
+
+  "permissions": [
+    "*://*.facebook.com/*",
+    "*://*/*",
+    "activeTab",
+    "tabs"
+  ],
+
+  "web_accessible_resources":[
+    "tabScript.js"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+    //"persistent": false
+  }
+}
